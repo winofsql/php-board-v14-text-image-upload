@@ -254,9 +254,14 @@ LOG;
 
 if ( $entry["image"] != null ) {
 
+    $img_path = "noimage.png";
+    if ( file_exists("{$data_path}/{$entry['image']}") ) {
+        $img_path = "{$data_path}/{$entry['image']}";
+    }
+
     $body_text = <<<BODY_TEXT
     <div class="body_text">
-        <img class="me-3" src="{$data_path}/{$entry['image']}" style="float:left;width:150px;">{$entry['body']}
+        <img class="me-3" src="{$img_path}" style="float:left;width:150px;">{$entry['body']}
         <div style="clear:both"></div>
     </div>
 
